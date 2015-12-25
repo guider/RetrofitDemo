@@ -16,7 +16,7 @@ public class AutoViewHolder {
 
     private AutoViewHolder( View convertView, int layoutId,ViewGroup parent) {
         this.convertView = LayoutInflater.from(parent.getContext()).inflate(layoutId,parent,false);
-        convertView.setTag(this);
+        this.convertView.setTag(this);
         views = new SparseArray<View>();
     }
 

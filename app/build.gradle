@@ -40,4 +40,5 @@ dependencies {
     compile project(':okhttputils')
     compile 'com.google.code.gson:gson:2.5'
     compile project(':waveswiperefreshlayoutlibrary')
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 }

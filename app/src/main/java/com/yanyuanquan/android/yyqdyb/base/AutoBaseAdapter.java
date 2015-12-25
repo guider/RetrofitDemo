@@ -38,8 +38,8 @@ public abstract class AutoBaseAdapter<T> extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         AutoViewHolder holder = AutoViewHolder.getInstance(parent,convertView,layoutId);
-        setView(mList.get(position),position);
+        setView(mList.get(position),holder);
         return holder.getConvertView();
     }
-    protected abstract void setView(T t, int position);
+    protected abstract void setView(T t, AutoViewHolder holder);
 }

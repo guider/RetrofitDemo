@@ -11,8 +11,8 @@ import com.zhy.http.okhttp.callback.StringCallback;
 public class HttpManager {
     private static final String APIKEY ="772260bdd9468056455968df48cc80a0";
     private static final String JOKE_URL="http://apis.baidu.com/showapi_open_bus/showapi_joke/joke_text";
-    private static final String MEINV_URL="http://apis.baidu.com/txapi/mvtp/meinv";
-
+    private static final String MEITU_URL="http://apis.baidu.com/tngou/gallery/classify";
+    private static final String MEITULIST_URL ="http://apis.baidu.com/tngou/gallery/list";
     public static void getJoke(String page, StringCallback callback){
             OkHttpUtils
                     .get()
@@ -24,19 +24,24 @@ public class HttpManager {
     }
 
 
-    public static void getMeiNv(String page, StringCallback callback){
+    public static void getMeiTu(StringCallback callback){
         OkHttpUtils
                 .get()
                 .addHeader("apikey",APIKEY)
-                .url(MEINV_URL)
-                .addParams("num",String.valueOf(15))
+                .url(MEITU_URL)
                 .build()
                 .execute(callback);
     }
 
 
-
-
-
-
+    public static void getMeiTuList(int id, int page,StringCallback callback) {
+        OkHttpUtils.get()
+                .addHeader("apikey",APIKEY)
+                .url(MEITULIST_URL)
+                .addParams("id",String.valueOf(id))
+                .addParams("page",String.valueOf(page))
+                .addParams("rows",String.valueOf(20))
+                .build()
+                .execute(callback);
+    }
 }

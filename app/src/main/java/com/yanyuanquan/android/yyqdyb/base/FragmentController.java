@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.yanyuanquan.android.yyqdyb.ui.GirlFragment;
+import com.yanyuanquan.android.yyqdyb.ui.MeiTuFragment;
 import com.yanyuanquan.android.yyqdyb.ui.JokeFragmnet;
 import com.yanyuanquan.android.yyqdyb.ui.NewsFragment;
 import com.yanyuanquan.android.yyqdyb.ui.NoteFragment;
@@ -35,7 +35,7 @@ public class FragmentController {
     private void init(int containId) {
         fs = new ArrayList<Fragment>();
         fs.add(new JokeFragmnet());
-        fs.add(new GirlFragment());
+        fs.add(new MeiTuFragment());
         fs.add(new NewsFragment());
         fs.add(new NoteFragment());
         FragmentTransaction ft = fm.beginTransaction();
