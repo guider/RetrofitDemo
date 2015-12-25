@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<FrameLayout
+    android:id="@+id/framelayout"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"/>
+    <RadioGroup
+        android:id="@+id/main_radiogroup"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <RadioButton
+           style="@style/Main_RadioButton_style"
+            android:checked="true"
+            android:id="@+id/main_joke_but"/>
+        <RadioButton
+            style="@style/Main_RadioButton_style"
+            android:id="@+id/main_girl_but"/>
+        <RadioButton
+            style="@style/Main_RadioButton_style"
+            android:id="@+id/main_news_but"/>
+        <RadioButton
+            style="@style/Main_RadioButton_style"
+            android:id="@+id/main_note_but"/>
+    </RadioGroup>
+
+</LinearLayout>
