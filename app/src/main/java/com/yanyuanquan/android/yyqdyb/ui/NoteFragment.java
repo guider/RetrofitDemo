@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yanyuanquan.android.yyqdyb.R;
 import com.yanyuanquan.android.yyqdyb.base.BaseFragment;
 
 /**
@@ -14,10 +15,9 @@ import com.yanyuanquan.android.yyqdyb.base.BaseFragment;
  * @projectName:YYQDYB
  */
 public class NoteFragment extends BaseFragment {
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return null;
+    protected int initLayout() {
+        return R.layout.fragment_joke;
     }
 
     @Override

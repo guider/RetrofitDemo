@@ -1,6 +1,7 @@
 package com.yanyuanquan.android.yyqdyb.base;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
@@ -21,5 +22,9 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
     }
     protected abstract void init();
     protected abstract void initView();
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+
+    }
 
 }

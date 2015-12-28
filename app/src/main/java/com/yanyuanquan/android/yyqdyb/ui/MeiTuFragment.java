@@ -19,6 +19,9 @@ import com.yanyuanquan.android.yyqdyb.base.HttpManager;
 import com.yanyuanquan.android.yyqdyb.entity.MeiTuClassify;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,12 +42,9 @@ public class MeiTuFragment extends BaseFragment {
     List<Fragment> fs;
     private List<MeiTuClassify> meiTuClassifies;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_meitu, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+    protected int initLayout() {
+        return R.layout.fragment_meitu;
     }
 
     @Override
@@ -52,6 +52,7 @@ public class MeiTuFragment extends BaseFragment {
         fs = new ArrayList<Fragment>();
         meiTuClassifies = new ArrayList<MeiTuClassify>();
     }
+
     @Override
     protected void initView() {
         initData();
@@ -61,8 +62,13 @@ public class MeiTuFragment extends BaseFragment {
         HttpManager.getMeiTu(new StringCallback() {
             @Override
             public void onResponse(String response) {
-                meiTuClassifies = JSON.parseArray(response,MeiTuClassify.class);
-                setData(meiTuClassifies);
+
+                try {
+                    meiTuClassifies = JSON.parseArray(new JSONObject(response).optString("tngou"), MeiTuClassify.class);
+                    setData(meiTuClassifies);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -72,14 +78,13 @@ public class MeiTuFragment extends BaseFragment {
     }
 
 
-
     public void setData(List<MeiTuClassify> data) {
-        if (data==null)
+        if (data == null)
             return;
-        for (MeiTuClassify d:data){
+        for (MeiTuClassify d : data) {
             Fragment f = new MeituItemFragment();
             Bundle b = new Bundle();
-            b.putInt("id",d.getId());
+            b.putInt("id", d.getId());
             f.setArguments(b);
             fs.add(f);
         }
@@ -88,10 +93,11 @@ public class MeiTuFragment extends BaseFragment {
         meituTablayout.setupWithViewPager(meituViewpager);
     }
 
-    class MeituPagerAdapter extends FragmentPagerAdapter{
+    class MeituPagerAdapter extends FragmentPagerAdapter {
         public MeituPagerAdapter(FragmentManager fm) {
             super(fm);
         }
+
         @Override
         public Fragment getItem(int position) {
             return fs.get(position);

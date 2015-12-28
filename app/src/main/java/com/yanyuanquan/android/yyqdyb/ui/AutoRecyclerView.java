@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
-import com.yanyuanquan.android.yyqdyb.widget.onLoadMoreLinstener;
+import com.yanyuanquan.android.yyqdyb.widget.onLoadMoreListener;
 
 /**
  * @Created by apple on 15/12/24.
@@ -57,9 +57,9 @@ public class AutoRecyclerView extends RecyclerView{
             }
         });
     }
-    private onLoadMoreLinstener linstener;
+    private onLoadMoreListener linstener;
 
-    public void setOnLoadMoreLinstener(onLoadMoreLinstener linstener){
+    public void setOnLoadMoreLinstener(onLoadMoreListener linstener){
         this.linstener =linstener;
     }
 

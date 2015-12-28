@@ -5,6 +5,6 @@ package com.yanyuanquan.android.yyqdyb.widget;
  * @description:
  * @projectName:YYQDYB
  */
-public interface onLoadMoreLinstener  {
+public interface onLoadMoreListener {
     void loadMore();
 }

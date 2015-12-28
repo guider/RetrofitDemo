@@ -15,6 +15,11 @@ public abstract class AutoBaseAdapter<T> extends BaseAdapter{
     protected List<T> mList;
     protected int layoutId;
 
+    public void setData(List<T> list){
+        this.mList = list;
+        notifyDataSetChanged();
+    }
+
     public AutoBaseAdapter(List<T> mList, int layoutId) {
         this.mList = mList;
         this.layoutId = layoutId;
