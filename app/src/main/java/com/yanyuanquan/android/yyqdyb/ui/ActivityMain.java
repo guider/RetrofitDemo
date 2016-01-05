@@ -32,6 +32,7 @@ public class ActivityMain extends BaseFragmentActivity implements RadioGroup.OnC
         controller.showFragment(0);
     }
 
+
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId) {

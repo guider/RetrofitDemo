@@ -9,6 +9,7 @@ import com.yanyuanquan.android.yyqdyb.base.CompatListFragment;
 import com.yanyuanquan.android.yyqdyb.base.HttpManager;
 import com.yanyuanquan.android.yyqdyb.entity.JokeWithImg;
 import com.yanyuanquan.android.yyqdyb.photoview.ActivityImagePager;
+import com.yanyuanquan.android.yyqdyb.widget.CustomToast;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
@@ -56,8 +57,8 @@ public class JokeImageFragmnet extends CompatListFragment implements WaveSwipeRe
     }
     @OnItemClick(R.id.listview)
     void onItemClick(int position){
-        ArrayList<String> imgurls = new ArrayList<String>();
 
+        ArrayList<String> imgurls = new ArrayList<String>();
         for (JokeWithImg.ShowapiResBodyEntity.ContentlistEntity list : jokeWithImg.getShowapi_res_body().getContentlist()){
             imgurls.add(String.valueOf(list.getImg()));
         }

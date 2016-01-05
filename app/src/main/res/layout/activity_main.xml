@@ -14,13 +14,13 @@
         android:layout_height="60dp">
         <RadioButton
            style="@style/Main_RadioButton_style"
-            android:checked="true"
             android:id="@+id/main_joke_but"/>
         <RadioButton
             style="@style/Main_RadioButton_style"
             android:id="@+id/main_girl_but"/>
         <RadioButton
             style="@style/Main_RadioButton_style"
+            android:checked="true"
             android:id="@+id/main_news_but"/>
         <RadioButton
             style="@style/Main_RadioButton_style"

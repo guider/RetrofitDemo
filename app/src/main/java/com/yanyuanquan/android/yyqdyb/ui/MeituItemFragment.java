@@ -41,7 +41,6 @@ public class MeituItemFragment extends BaseListFragment<MeiTuList.TngouEntity> {
                 ((TextView)holder.getView(R.id.title)).setText(entity.getTitle());
                 ImageView imageView = holder.getView(R.id.img);
                 ImageLoader.getInstance().displayImage(imgurl+entity.getImg()+"_500x500",imageView, App.creatDefaultDisplayBuilder());
-                Log.i("zjw",entity.getTitle()+entity.getImg());
             }
         };
         setListAdapter(adapter);

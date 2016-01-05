@@ -62,58 +62,5 @@ public class JokeFragmnet extends BaseFragment implements RadioGroup.OnCheckedCh
         ButterKnife.unbind(this);
     }
 
-//        adapter = new JokeAdapter(null, R.layout.item_main_joke);
-//        jokeRecyclerview.setAdapter(adapter);
-//        RecyclerView.LayoutManager manager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-//        jokeRecyclerview.setLayoutManager(manager);
-//    }
-//
-//    @Override
-//    protected void initView() {
-//        showJoke(1,false);
-//        jokeRecyclerview.setOnLoadMoreLinstener(this);
-//        jokeWaveswiperefreshlayout.setOnRefreshListener(this);
-//
-//    }
-//
-//    private void showJoke(int page,final boolean isLoadMore) {
-//        HttpManager.getJoke(String.valueOf(page), new StringCallback() {
-//            @Override
-//            public void onResponse(String response) {
-//                Joke joke = new Gson().fromJson(response, Joke.class);
-//                setData(joke,isLoadMore);
-//            }
-//
-//            @Override
-//            public void onAfter() {
-//                if (jokeWaveswiperefreshlayout != null && jokeWaveswiperefreshlayout.isRefreshing())
-//                    jokeWaveswiperefreshlayout.setRefreshing(false);
-//                linearLoading.setVisibility(View.GONE);
-//            }
-//        });
-//    }
-//
-//    private void setData(Joke joke,boolean isLoadMore) {
-//        if (joke.getShowapi_res_body().getContentlist()==null)
-//            return;
-//        adapter.appendDatas(joke.getShowapi_res_body().getContentlist());
-//        if (isLoadMore) {
-//            jokeRecyclerview.scrollToPosition(adapter.getItemCount() - joke.getShowapi_res_body().getContentlist().size());
-//            page++;
-//        }
-//    }
-//
-//
-//    @Override
-//    public void onRefresh() {
-//        showJoke(1,false);
-//    }
-//
-//    @Override
-//    public void loadMore() {
-//        linearLoading.setVisibility(View.VISIBLE);
-//        showJoke(page,true);
-//    }
-
 
 }

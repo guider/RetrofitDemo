@@ -9,6 +9,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.yanyuanquan.android.yyqdyb.mvp.presenter.application.AppComponent;
 
 /**
  * @Created by apple on 15/12/24.
@@ -18,12 +19,15 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 public class App extends Application {
     public static Context context;
 
+    private AppComponent appComponent;
     @Override
     public void onCreate() {
         super.onCreate();
         context = this;
         init();
+
     }
+
 
     private void init() {
         ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(context)
