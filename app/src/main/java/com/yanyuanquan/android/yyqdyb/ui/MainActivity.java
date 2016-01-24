@@ -2,19 +2,19 @@ package com.yanyuanquan.android.yyqdyb.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.google.gson.Gson;
 import com.yanyuanquan.android.yyqdyb.R;
 import com.yanyuanquan.android.yyqdyb.adapter.MainJokeAdapter;
 import com.yanyuanquan.android.yyqdyb.base.HttpManager;
 import com.yanyuanquan.android.yyqdyb.entity.Joke;
+import com.yanyuanquan.android.yyqdyb.mvp.presenter.DaggerMainActivityComponent;
+import com.yanyuanquan.android.yyqdyb.mvp.presenter.MainActivityModel;
 import com.yanyuanquan.android.yyqdyb.mvp.presenter.MainPresenter;
+import com.yanyuanquan.android.yyqdyb.mvp.presenter.application.AppComponent;
 import com.yanyuanquan.android.yyqdyb.mvp.presenter.iview.IMainView;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -36,9 +36,12 @@ public class MainActivity extends BaseCompatActivity implements WaveSwipeRefresh
     MainPresenter presenter;
 
     @Override
-    protected void setupActivityComponent() {
+    protected void setupActivityComponent(AppComponent appComponent) {
+        DaggerMainActivityComponent.builder()
+                .appComponent(appComponent)
+                .mainActivityModel(new MainActivityModel(this))
+                .build().inject(this);
 
-//        DaggerMainActvityComponent.builder();
     }
 
     @Override
@@ -46,6 +49,7 @@ public class MainActivity extends BaseCompatActivity implements WaveSwipeRefresh
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         ButterKnife.bind(this);
+        presenter.onCreate();
 //        init();
 //        initView();
     }

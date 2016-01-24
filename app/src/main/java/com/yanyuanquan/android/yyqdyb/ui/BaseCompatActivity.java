@@ -1,20 +1,21 @@
 package com.yanyuanquan.android.yyqdyb.ui;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.yanyuanquan.android.yyqdyb.App;
+import com.yanyuanquan.android.yyqdyb.mvp.presenter.application.AppComponent;
 
 /**
  * Created by apple on 16/1/5.
  */
 public abstract class BaseCompatActivity extends AppCompatActivity{
-
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        setupActivityComponent();
-
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setupActivityComponent(App.getContext(this).getAppComponent());
     }
 
-    protected abstract void setupActivityComponent();
+    protected abstract void setupActivityComponent(AppComponent appComponent);
 }

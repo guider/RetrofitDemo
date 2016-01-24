@@ -1,12 +1,15 @@
 package com.yanyuanquan.android.yyqdyb.mvp.presenter;
 
-import com.yanyuanquan.android.yyqdyb.entity.JokeWithImg;
+import android.util.Log;
+
+import com.yanyuanquan.android.yyqdyb.entity.GitHub;
 import com.yanyuanquan.android.yyqdyb.mvp.presenter.apiservice.ApiService;
 import com.yanyuanquan.android.yyqdyb.mvp.presenter.iview.IMainView;
 
-import rx.android.schedulers.AndroidSchedulers;
+import java.util.List;
+
 import rx.functions.Action1;
-import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by apple on 16/1/4.
@@ -22,22 +25,21 @@ public class MainPresenter implements Presenter {
 
     @Override
     public void onCreate() {
-        apiService.getJokeImg(2015).observeOn(AndroidSchedulers.mainThread())
-                .map(new Func1<JokeWithImg, JokeWithImg>() {
-                    @Override
-                    public JokeWithImg call(JokeWithImg jokeWithImg) {
-                        return jokeWithImg;
-                    }
-                })
-                .subscribe(new Action1<JokeWithImg>() {
-                    @Override
-                    public void call(JokeWithImg jokeWithImg) {
-                        mView.showLog(jokeWithImg.toString());
-                    }
-                });
+        apiService.getJokeImg().subscribeOn(Schedulers.io())
+               .subscribe(new Action1<List<GitHub>>() {
+                   @Override
+                   public void call(List<GitHub> gitHubs) {
+                       Log.i("zjw",gitHubs.toString());
+                   }
+               }, new Action1<Throwable>() {
 
+
+                   @Override
+                   public void call(Throwable throwable) {
+                       Log.i("zjw", throwable.toString());
+                   }
+               });
     }
-
     @Override
     public void onDestory() {
 
